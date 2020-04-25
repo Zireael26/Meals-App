@@ -3,6 +3,8 @@ import 'package:mealsapp/dummay_data.dart';
 import 'package:mealsapp/widgets/category_item.dart';
 
 class CategoriesPage extends StatelessWidget {
+  static const routeName = '/';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +21,7 @@ class CategoriesPage extends StatelessWidget {
         ),
         children: DUMMY_CATEGORIES
             .map((catData) => CategoryItem(
+          catData.id,
           catData.title,
           catData.color,
         ))
