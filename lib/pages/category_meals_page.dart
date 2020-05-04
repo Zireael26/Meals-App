@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mealsapp/widgets/meal_item.dart';
 
 import '../dummay_data.dart';
 
@@ -20,7 +21,14 @@ class CategoryMealsPage extends StatelessWidget {
         ),
         body: ListView.builder(
           itemBuilder: (context, index) {
-            return Text(categoryMeals[index].title);
+            return MealItem(
+              id: categoryMeals[index].id,
+              title: categoryMeals[index].title,
+              imgURL: categoryMeals[index].imageUrl,
+              duration: categoryMeals[index].duration,
+              affordability: categoryMeals[index].affordability,
+              complexity: categoryMeals[index].complexity,
+            );
           },
           itemCount: categoryMeals.length,
         ));
