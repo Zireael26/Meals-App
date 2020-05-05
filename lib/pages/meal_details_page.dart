@@ -4,6 +4,13 @@ import '../dummay_data.dart';
 
 class MealDetailsPage extends StatelessWidget {
   static const routeName = '/meal-details';
+  final Function toggleFavorite;
+
+  final Function isFavorite;
+
+  const MealDetailsPage(
+      {Key key, @required this.toggleFavorite, @required this.isFavorite})
+      : super(key: key);
 
   Widget buildSectionTitle(BuildContext context, String title) {
     return Container(
@@ -78,9 +85,11 @@ class MealDetailsPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pop(mealId);
+          toggleFavorite(mealId);
         },
-        child: Icon(Icons.delete),
+        child: isFavorite(mealId)
+            ? Icon(Icons.favorite)
+            : Icon(Icons.favorite_border),
       ),
     );
   }

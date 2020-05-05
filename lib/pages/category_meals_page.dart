@@ -19,12 +19,6 @@ class _CategoryMealsPageState extends State<CategoryMealsPage> {
   List<Meal> displayedMeals;
   bool _loadedInitData = false;
 
-  void _removeMealItem(String mealId) {
-    setState(() {
-      displayedMeals.removeWhere((meal) => meal.id == mealId);
-    });
-  }
-
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -59,7 +53,6 @@ class _CategoryMealsPageState extends State<CategoryMealsPage> {
               duration: displayedMeals[index].duration,
               affordability: displayedMeals[index].affordability,
               complexity: displayedMeals[index].complexity,
-              removeItemFunction: _removeMealItem,
             );
           },
           itemCount: displayedMeals.length,
